@@ -1,19 +1,18 @@
+# step-1 : search the stock price from economic times
+# step-2:copy the link of economicstimes which is showing you the stock price
+# step-3: paste the link in the link in the fifth line with the inverted comma around
 import requests
-
+Link='https://economictimes.indiatimes.com/lupin-ltd/stocks/companyid-10743.cms'
 #the required first parameter of the 'get' method is the 'url':
 http = requests.get('https://economictimes.indiatimes.com/dlf-ltd/stocks/companyid-12393.cms')
-# http = requests.get('https://economictimes.indiatimes.com/lupin-ltd/stocks/companyid-10743.cms')
+# http = requests.get(Link)
 x=http.text
-# print the response text (the content of the requested file):
-# print(type(x))
 
 
 
-# The count() method returns the number of times a specified value appears in the string.
 y=x.count('data-ltp=')
 # print(y)
 
-# The find() method finds the first occurrence of the specified value.
 y = x.find('data-ltp=')
 # print(y)
 # print(x[y])
@@ -26,12 +25,5 @@ while(1):
         break
     # print(x[y])
     z=z+1
-# print(z)
 price = float(x[y+10:z])
 print(price)
-# print(type(price))
-# print(x[y])
-# print(http.content)
-# print(http.status_code)
-# print(http.headers['content-type'])
-# print(http.json)
